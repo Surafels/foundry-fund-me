@@ -12,6 +12,7 @@ contract InteractionsTest is Test {
     address USER = makeAddr("USER");
     uint256 constant SEND_VALUE = 1 ether;
     uint256 constant STARTING_BALANCE = 10 ether;
+
     function setUp() external {
         DeployFundMe deployFundMe = new DeployFundMe();
         fundMe = deployFundMe.run();
@@ -27,7 +28,6 @@ contract InteractionsTest is Test {
     //     assertEq(funder, USER);
     // }
 
-    
     function testUserCanFundAndOwnerWithdraw() public {
         uint256 preUserBalance = address(USER).balance;
         uint256 preOwnerBalance = address(fundMe.getOwner()).balance;
